@@ -1,7 +1,7 @@
 # OO Application Development
 
-- Academiejaar: 
-- Opleiding: 
-- Klasgroep: 
-- Naam: 
+- Academiejaar: 2025-2026
+- Opleiding: IT
+- Klasgroep: 7
+- Naam: Alaa Badawi
 
