@@ -30,9 +30,9 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" Text="~~ Maak een reservatie ~~" Margin="0,0,0,20" />
             <Label Grid.Row="1" Grid.Column="0" Margin="0,5" Content="E-mail:" />
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="0,5" Text="bobby.peru@lynch.com" />
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="0,5" Text="bobby.peru@lynch.com" TextWrapping="Wrap"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Personen" Margin="0,5"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Text="3" Height="30" Margin="0,5" Width="100" HorizontalAlignment="Left"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="3" Height="30" Margin="0,5" Width="100" HorizontalAlignment="Left" TextAlignment="Right"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Commentaar" Margin="0,0,10,10"/>
             <TextBox Grid.Row="3" Grid.Column="1" Height="80" AcceptsReturn="True" TextWrapping="Wrap" Margin="0,0,0,10"/>
             <TextBlock Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Margin="0,0,0,20" FontStyle="Italic">
