@@ -16,7 +16,8 @@
         <Frame x:Name="fraAssignment" Grid.Row="0" Grid.Column="0" Background="#eeeeee" />
         <Border Background="#F3F3F3" BorderBrush="#DDDDDD" BorderThickness="1" Padding="12" Margin="20" Grid.Row="1">
             <!-- TODO: PAS HIERONDER DE XAML AAN -->
-            <StackPanel Background="#F3F3F3" Margin="10">
+            <ScrollViewer>
+                <StackPanel Background="#F3F3F3" Margin="10">
                 <TextBlock FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10">Sectie 1</TextBlock>
                 <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">
                     Hipoteca eh desperto pintados le ni bastante se habitaba. Un la sexo unas hizo unos sola faro ch oh. Fama cama ti ma ocho odio como. Ido calva asi pilon eso ley frios. Venta darle siete te no tiple. Ir yo tenerle sentado suertes refirio negarle se. Quitado ex serenos derriba cumplir yo. Hoja pre tuvo malo sido celo dio tan sol.
@@ -33,6 +34,7 @@
                 </TextBlock>
                 <Image Source="/Assignments/img/blazer03.JPG" Margin="0,0,0,20" HorizontalAlignment="Left" Width="80"/>
             </StackPanel>
+            </ScrollViewer>
         </Border>
     </Grid>
 </Page>
