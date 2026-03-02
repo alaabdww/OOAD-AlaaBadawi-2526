@@ -42,8 +42,14 @@
                         <CheckBox Content="Meldingen toestaan" Margin="5"></CheckBox>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Over">
-                    
+                <TabItem Header="Over" Height="20" VerticalAlignment="Top">
+                    <TextBlock TextWrapping="Wrap" Padding="10">Dit is een voorbeeldapplicatie om tabControl te oefenen. Gebruik tabs om instellingen
+                    <Run FontWeight="Bold">logisch te groeperen</Run> 
+                    en het scherm overzichtelijk te houden.
+                    <LineBreak/>
+                    <LineBreak/>
+                    Safi Harare, 2026.
+                    </TextBlock>
                 </TabItem>
             </TabControl>
         </Border>
