@@ -16,6 +16,36 @@
         <Frame x:Name="fraAssignment" Grid.Row="0" Grid.Column="0" Background="#eeeeee" />
         <Border Background="#EEFDEF" BorderBrush="#6B6CB0" BorderThickness="1" Padding="12" Margin="20" Grid.Row="1">
             <!-- TODO: PAS HIERONDER DE XAML AAN -->
+            <TabControl>
+                <TabItem Header="Account" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="E-mail:" Grid.Row="0" Grid.Column="0" Margin="5"></Label>
+                        <Label Content="Wachtwoord:" Grid.Column="0" Grid.Row="1" Margin="5"></Label>
+                        <TextBox Grid.Row="0" Grid.Column="1" Margin="5"></TextBox>
+                        <PasswordBox Grid.Row="1" Grid.Column="1" Margin="5"></PasswordBox>
+                        <Button Content="Wijzigen" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Padding="10, 3"></Button>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Voorkeuren">
+                    <StackPanel Orientation="Vertical">
+                        <CheckBox Content="Nieuwsbrief ontvangen" IsChecked="True" Margin="5"></CheckBox>
+                        <CheckBox Content="Donkere modus" IsChecked="True" Margin="5"></CheckBox>
+                        <CheckBox Content="Meldingen toestaan" Margin="5"></CheckBox>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Over">
+                    
+                </TabItem>
+            </TabControl>
         </Border>
     </Grid>
 </Page>
