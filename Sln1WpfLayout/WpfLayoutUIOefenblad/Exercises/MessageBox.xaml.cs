@@ -11,4 +11,9 @@ public partial class MessageBoxDialog : Page
     {
         InitializeComponent();
     }
+
+    private void btnOpslaan_Click(object sender, RoutedEventArgs e)
+    {
+        
+    }
 }
