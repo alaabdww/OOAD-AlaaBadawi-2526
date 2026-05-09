@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>WPF Controls oefenblad</title>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&display=swap">
+   <link rel="stylesheet" href="vendor/prism-default.css">
+   <link rel="stylesheet" href="vendor/prism-okaida.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="stylesheet" href="css/mods.css">
+</head>
+
+<body class="prism language-markup">
+
+   <header class="page-header" aria-label="Paginakop">
+      <h1>WPF Controls oefenblad</h1>
+      <p>
+         Dit is een oefenblad bij het hoofdstuk
+         <a href="https://rogiervdl.github.io/CS-course/07_wpf.html">WPF Controls</a>.
+      </p>
+   </header>
+
+   <main>
+      <section class="intro box" aria-label="Inleiding">
+         <h2>Hoe los je dit oefenblad op?</h2>
+         <ol>
+            <li>Open dit oefenblad in <strong>Visual Studio 2026</strong>.</li>
+            <li>De oefeningen vind je in de map <em>Exercises</em>, de opdrachten vind je hieronder</li>
+            <li>Vul overal bij de oefeningen de code aan.</li>
+            <li>Run het oefenblad en controleer het resultaat</li>
+         </ol>
+         <p>Overzicht van de oefeningen:</p>
+         <ol>
+            <li><a href="#ex1">Klik mij</a></li>
+            <li><a href="#ex2">Welkom</a></li>
+            <li><a href="#ex3">Chatbox</a></li>
+            <li><a href="#ex4">Password Validator</a></li>
+            <li><a href="#ex5">Live Form Validation</a></li>
+            <li><a href="#ex6">Language Selector</a></li>
+            <li><a href="#ex7">Order Builder</a></li>
+            <li><a href="#ex8">Volume Control</a></li>
+            <li><a href="#ex9">Advanced Visibility Toggle</a></li>
+            <li><a href="#ex10">Course Registration</a></li>
+            <li><a href="#ex11">Price Configurator</a></li>
+            <li><a href="#ex12">OXO</a></li>
+            <li><a href="#ex13">Select And Move</a></li>
+            <li><a href="#ex14">Animal Sounds</a></li>
+         </ol>
+         <p>Alle theorie vind je in <a href="https://rogiervdl.github.io/CS-course/07_wpf.html">WPF Controls</a>.</p>
+      </section>
+
+      <!-- Oefening 1: Klik mij -->
+      <section class="exercise" id="ex1">
+         <h2>Klik mij</h2>
+         <p class="goal">Doel: werken met een <code>Button</code> en Click event; gebruik van de Hongaarse notatie voor controls.</p>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <p>Gegeven is de XAML met een <code>Button</code> en een <code>TextBlock</code>.</p>
+            <ul>
+               <li>
+                  Geef beide controls een naam. Gebruik altijd de <em>Hongaarse notatie</em> voor controls, dus een drieletter prefix die het type control aanduidt, gevolgd door een duidelijke naam: <code>imgPhoto</code>, <code>txtBericht</code>, <code>inpNaam</code>... Je mag zelf de prefix kiezen, maar zorg dat je overal dezelfde prefixes gebruikt.
+               </li>
+            </ul>
+            <h3>Code-behind</h3>
+            <ul>
+               <li>
+                  Koppel een Click event toe aan de Button. Dit kan op twee manieren, zie <a href="https://rogiervdl.github.io/DEVENV-course/04_visualstudio.html#events-toevoegen">de theorie</a>.
+               </li>
+               <li>
+                  Vul de event handler in de code-behind in: toon de tekst "er is op de button geklikt" in de <code>TextBlock</code>.
+               </li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/KlikMij.png" alt="Screenshot van de Klik mij applicatie" width="170">
+               <figcaption>screenshot</figcaption>
+            </figure>
+         </div>
+      </section>
+
+      <!-- Oefening 2: Welkom -->
+      <section class="exercise" id="ex2">
+         <h2>Welkom</h2>
+         <p class="goal">Doel: gebruik <code>TextBox</code> en <code>Text</code> property.</p>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <ul>
+               <li>Maak een <code>Grid</code> met twee kolommen, de laatste 100px breed, en vier rijen: de eerste twee <code>Auto</code>, de derde 40px hoog en de vierde de rest. De maximum breedte is 400px.</li>
+               <li>Voeg de controls toe: 1x <code>Label</code>, 1x <code>TextBox</code>, 1x <code>Button</code> en 2x <code>TextBlock</code>. Let er op dat alle controls in de XAML in de <strong>juiste volgorde</strong> staan!</li>
+               <li>Geef alle controls een naam; gebruik overal de <strong>Hongaarse notatie</strong>, dus <code>btnVerzenden</code>, <code>txtNaam</code>, <code>imgPhoto</code>, etc.</li>
+               <li>Werk alle controls af met <code>Margin</code> en <code>Padding</code>.</li>
+               <li>De foutmelding staat schuin, kleur is <code>#900</code>; verberg het met <code>Visibility</code></li>
+               <li>De tekst onderaan is 16px, <code>SemiBold</code></li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/WelkomXaml.png" alt="" width="600">
+               <figcaption>screenshot</figcaption>
+            </figure>
+            <h3>Code-behind, deel 1: tonen welkomsttekst</h3>
+            <ul>
+               <li>Koppel een <code>Click</code>-event aan de Button.</li>
+               <li>Vul de code-behind in zodat bij een geldige invoer de tekst <strong>Welkom, &lt;naam&gt;!</strong> verschijnt (lees de <code>Text</code> property van de <code>TextBox</code>)</li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/WelkomClick.png" alt="" width="300">
+               <figcaption>screenshot</figcaption>
+            </figure>
+            <h3>Code-behind, deel 2: validatie en Trim</h3>
+            <ul>
+               <li>Gebruik <code>Trim()</code> zodat spaties voor en na de naam worden verwijderd.</li>
+               <li>Controleer of de invoer leeg is of alleen uit spaties bestaat.</li>
+               <li>Indien leeg: maak de foutmelding zichtbaar, en zet de tekst onderaan terug naar "<strong>...</strong>".</li>
+               <li>Indien niet leeg: verberg de foutmelding weer.</li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/WelkomValidate.png" alt="" width="300">
+               <figcaption>screenshot</figcaption>
+            </figure>
+         </div>
+      </section>
+
+      <!-- Oefening 3: Chatbox -->
+      <section class="exercise" id="ex3">
+         <h2>Chatbox</h2>
+         <p class="goal">Doel: tekst over meerdere regels van een <code>TextBox</code> met <code>TextWrapping</code> en <code>AcceptsReturn</code> properties. Tekstopmaak in een <code>TextBlock</code> met <code>Bold</code>.</p>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <p>Het grootste deel van de XAML is reeds gegeven. Vul aan:</p>
+            <ul>
+               <li>Om in de tweede <code>TextBox</code> meerdere regels te kunnen typen, heb je twee attributen nodig: <code>AcceptsReturn="True"</code> en <code>TextWrapping="Wrap"</code>. Voeg ze toe in de XAML.</li>
+               <li>Voeg een scrollbar toe aan de <code>TextBlock</code> met <code>ScrollViewer</code>. Let op dat attributen als <code>Grid.Column</code> en <code>Margin</code> naar de <code>ScrollViewer</code> moeten verplaatst worden.</li>
+            </ul>
+            <h3>Code-behind</h3>
+            <ul>
+               <li>Koppel een <code>Click</code>-event aan de Button.</li>
+               <li>
+                  Vul de event handler in zodat bij verzenden het nieuw bericht rechts verschijnt; wis de velden links.
+                  <br><em>Tip: om de naam vet te zetten, zie <a href="https://rogiervdl.github.io/CS-course/07_wpf.html#tekst-met-opmaak">deze uitleg</a></em>
+               </li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/ChatBox1.png" alt="" width="500">
+               <img src="img/ChatBox2.png" alt="" width="500">
+               <figcaption>screenshots</figcaption>
+            </figure>
+         </div>
+      </section>
+
+      <!-- Oefening 4: Password Validator -->
+      <section class="exercise" id="ex4">
+         <h2>Password Validator</h2>
+         <p class="goal">Doel: gebruik <code>TextChanged</code> event.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Bouw een eenvoudige wachtwoordvalidator: tijdens het typen wordt gecontroleerd of het wachtwoord voldoet aan de regels. De achtergrondkleur van het invoerveld geeft direct feedback.
+            </p>
+            <p>
+               <em>Tip: voor de validatie kan je handig gebruik maken van de Linq extensie methode <code>Any()</code>, samen met de <code>char</code> methodes <code>IsLetter()</code>, <code>IsUpper()</code> en <code>IsDigit()</code>:</em>
+            </p>
+            <ul>
+               <li><em>voeg eerst <code>System.Linq</code> toe bovenaan</em></li>
+               <li><em>controle op cijfer kan dan bv. met <code>if (!password.Any(c => char.IsDigit(c)))...</code></em></li>
+            </ul>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <p>De XAML is reeds grotendeels gegeven.</p>
+            <ul>
+               <li>Voeg enkel nog namen toe voor de <code>TextBox</code> en <code>TextBlock</code> (Hongaarse notatie).</li>
+            </ul>
+            <h3>Code-behind</h3>
+            <ul>
+               <li>Koppel een <code>TextChanged</code>-event aan de <code>TextBox</code>.</li>
+               <li>
+                  In de handler: als het wachtwoord <strong>leeg</strong> is, zet de achtergrondkleur van de TextBox op <strong>wit</strong>, en toon geen foutmelding.
+                  <br><em>tip: gebruik <code>string.IsNullOrWhiteSpace()</code></em>
+               </li>
+               <li>
+                  Als het wachtwoord <strong>niet leeg</strong> is, controleer dan of het geldig is. Zoja, zet de achtergrondkleur op <code>LightGreen</code>, zonee zet het op <code>Coral</code> en toon de fouten. Regels voor het paswoord:
+                  <ul>
+                     <li>minstens 8 tekens lang</li>
+                     <li>minstens één hoofdletter</li>
+                     <li>minstens één cijfer</li>
+                     <li>minstens één speciaal teken (geen letter, geen cijfer)</li>
+                  </ul>
+               </li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/PasswordValidator1.png" alt="" width="250">
+               <img src="img/PasswordValidator2.png" alt="" width="250">
+               <img src="img/PasswordValidator4.png" alt="" width="250">
+               <img src="img/PasswordValidator5.png" alt="" width="250">
+               <figcaption>screenshots</figcaption>
+            </figure>
+         </div>
+      </section>
+
+      <!-- Oefening 5: Live Form Validation -->
+      <section class="exercise" id="ex5">
+         <h2>Live Form Validation</h2>
+         <p class="goal">Doel: gebruik <code>TextChanged</code> event.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Bouw een eenvoudige wachtwoordvalidator: tijdens het typen wordt gecontroleerd of het wachtwoord voldoet aan volgende regels:
+            </p>
+            <ul>
+               <li>minstens 8 tekens lang</li>
+               <li>minstens één hoofdletter</li>
+               <li>minstens één cijfer</li>
+            </ul>
+            <p>
+               <em>Tip: voor de validatie kan je handig gebruik maken van de Linq extensie methode <code>Any()</code>, samen met de <code>char</code> methodes <code>IsLetter()</code>, <code>IsUpper()</code> en <code>IsDigit()</code>:</em>
+            </p>
+            <ul>
+               <li><em>voeg eerst <code>System.Linq</code> toe bovenaan</em></li>
+               <li><em>controle op cijfer kan dan bv. met <code>if (!password.Any(c => char.IsDigit(c)))...</code></em></li>
+            </ul>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <p>De XAML is reeds gegeven.</p>
+            <h3>Code-behind</h3>
+            <ul>
+               <li>
+                  Koppel een <code>TextChanged</code>-event aan de <code>TextBox</code>.
+               </li>
+               <li>
+                  In de handler: als het wachtwoord leeg is, wis de statustekst en disable de button.
+                  <br><em>tip: gebruik <code>string.IsNullOrWhiteSpace()</code></em>
+               </li>
+               <li>Als het wachtwoord geldig is, toon de tekst "Geldig paswoord", anders de tekst "ongeldig paswoord".</li>
+               <li>De statustekst staat in het groen of rood (<code>DarkGreen</code> of <code>Red</code>) naargelang het paswoord geldig is of niet.</li>
+               <li>De button is enkel enabled als het paswoord ingevuld en geldig is.</li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/LiveFormValidator1.png" alt="" width="500">
+               <img src="img/LiveFormValidator2.png" alt="" width="500">
+               <img src="img/LiveFormValidator3.png" alt="" width="500">
+               <img src="img/LiveFormValidator4.png" alt="" width="500">
+               <figcaption>screenshots</figcaption>
+            </figure>
+         </div>
+      </section>
+
+      <!-- Oefening 6: Language Selector -->
+      <section class="exercise" id="ex6">
+         <h2>Language Selector</h2>
+         <p class="goal">Doel: werken met <code>ComboBox</code>/<code>ComboBoxItem</code> en <code>SelectionChanged</code> event.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Lees vooraf de theorie over de <a href="https://rogiervdl.github.io/CS-course/07_wpf.html#combobox">ComboBox</a>.
+            </p>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <ul>
+               <li>
+                  Maak een <code>StackPanel</code> met een <code>ComboBox</code> en een <code>TextBlock</code> (16px, <code>SemiBold</code>).
+               </li>
+               <li>
+                  Voeg aan de <code>ComboBox</code> een <code>ComboBoxItem</code> toe met waarde "Kies je taal..."; selecteer het met de <code>IsSelected</code> property.
+               </li>
+            </ul>
+            <h3>Code-behind</h3>
+            <ul>
+               <li>
+                  In de code-behind, in de constructor onder <code>InitializeComponent()</code>:
+                  <ul>
+                     <li>maak een array <code>languages</code> met drie waarden: "Nederlands", "English", "Français"</li>
+                     <li>voeg met <code>foreach</code> voor elke taal een <code>ComboBoxItem</code> toe</li>
+                  </ul>
+               </li>
+               <li>
+                  Voeg een <code>SelectionChanged</code> event toe aan de <code>ComboBox</code>, waarmee je in de <code>TextBlock</code> een begroeting toont naargelang de gekozen taal: Hallo, Hello of Bonjour. Gebruik een <code>switch</code>-<code>case</code> op de taal, geen if-else-if.
+               </li>
+               <li>
+                  Zet het gekozen <code>ComboBoxItem</code> in <code>Bold</code>; zet de andere items terug op <code>Normal</code>.
+               </li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/LanguageSelector1.png" alt="" width="200">
+               <img src="img/LanguageSelector2.png" alt="" width="200">
+               <img src="img/LanguageSelector3.png" alt="" width="200">
+               <figcaption>screenshots</figcaption>
+            </figure>
+         </div>
+      </section>
+
+      <!-- Oefening 7: Order Builder -->
+      <section class="exercise" id="ex7">
+         <h2>Order Builder</h2>
+         <p class="goal">Doel: werken met <code>CheckBox</code> en <code>RadioButton</code>.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Lees vooraf de theorie over de <a href="https://rogiervdl.github.io/CS-course/07_wpf.html#checkbox">CheckBox</a> en <a href="https://rogiervdl.github.io/CS-course/07_wpf.html#radiobutton">RadioButton</a>.
+            </p>
+            <ul>
+               <li><code>IsChecked</code> is een nullable boolean: <code>true</code>, <code>false</code> of <code>null</code>: controleer meestal zo: <code>chkCheese.IsChecked == true</code>.</li>
+               <li>
+                  RadioButtons horen bij elkaar wanneer ze dezelfde <code>GroupName</code> hebben; je kan dan maar één keuze maken uit die groep.
+               </li>
+            </ul>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <p>Alle margins en paddings zijn veelvouden van 5.</p>
+            <ul>
+               <li>Maak een <code>Grid</code> met één rij en drie gelijke kolommen.</li>
+               <li>Steek in elke kolom een <code>StackPanel</code> met bovenaan telkens een <code>TextBlock</code> voor de titel (16px, semibold).</li>
+               <li>Voeg de overige checkboxen en radiobuttons toe; denk eraan de radiobuttons dezelfde <code>GroupName</code> te geven.</li>
+               <li>Selecteer de eerste en derde checkbox met <code>IsChecked</code>.</li>
+               <li>Geef alle controls die je nodig hebt in de code-behind een naam in Hongaarse notatie.</li>
+               <li>Voeg onderaan de tweede kolom een <code>StackPanel</code> toe voor de twee buttons.</li>
+               <li>Voeg tenslotte onderaan de derde kolom een <code>TextBlock</code> toe voor de samenvattingstekst.</li>
+            </ul>
+            <h3>Code-behind</h3>
+            <ul>
+               <li>Koppel aan de bevestigknop een <code>Click</code>-event.</li>
+               <li>Lees de gekozen leveringsmethode uit de radio buttons.</li>
+               <li>Als er geen leveringsmethode gekozen is, toon de tekst "Kies eerst een leveringsmethode".</li>
+               <li>Overloop dan één voor één de checkboxes; steek de aangevinkte keuzes in een <code>List&lt;string&gt;</code>.</li>
+               <li>Toon in <code>txtSummary</code> een samenvatting in twee regels naar voorbeeld van de screenshot.</li>
+               <li>Implementeer tenslotte de resetknop, die alles reset naar de oorspronkelijke toestand.</li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/OrderBuilder1.png" alt="" width="500">
+               <img src="img/OrderBuilder2.png" alt="" width="500">
+               <figcaption>screenshots</figcaption>
+            </figure>
+         </div>
+      </section>
+
+      <!-- Oefening 8: Volume Control -->
+      <section class="exercise" id="ex8">
+         <h2>Volume Control</h2>
+         <p class="goal">Doel: werken met <code>Slider</code> en <code>ValueChanged</code> event.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Lees vooraf de theorie over de <a href="https://rogiervdl.github.io/CS-course/07_wpf.html#slider">Slider</a>. Bestudeer vooral de properties <code>Minimum</code>, <code>Value</code> enz.
+            </p>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <p>Een groot deel is al gegeven.</p>
+            <ul>
+               <li>Voeg een <code>Slider</code> toe onder de <code>TextBlock</code> met een bereik 0 tot 100, in sprongen van 5; stel de waarde in op 40.</li>
+               <li>Geef de drie controls een naam (Hongaarse notatie zoals steeds).</li>
+            </ul>
+            <h3>Code-behind</h3>
+            <ul>
+               <li>Koppel het <code>ValueChanged</code>-event aan de Slider.</li>
+               <li>Toon de waarde van het volume in de TextBlock.</li>
+               <li>Maak de <code>Border</code> groen bij waarden minder dan 20, geel bij minder dan 40, oranje bij minder dan 60, rood bij minder dan 80 en anders donkerrood.</li>
+               <li>Stel de procentuele breedte van de <code>Border</code> in op het volume.</li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/VolumeControl1.png" alt="" width="350">
+               <img src="img/VolumeControl2.png" alt="" width="350">
+               <img src="img/VolumeControl3.png" alt="" width="350">
+               <figcaption>screenshots</figcaption>
+            </figure>
+         </div>
+      </section>
+
+      <!-- Oefening 9: Advanced Visibility Toggle -->
+      <section class="exercise" id="ex9">
+         <h2>Advanced Visibility Toggle</h2>
+         <p class="goal">Doel: een element tonen en verbergen met <code>Visibility</code>; verschil tussen <code>Hidden</code> en <code>Collapsed</code>.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               In WPF kan je een element verbergen met <code>Hidden</code> of <code>Collapsed</code>.
+            </p>
+            <ul>
+               <li><code>Hidden</code>: onzichtbaar, maar het element blijft ruimte innemen.</li>
+               <li><code>Collapsed</code>: onzichtbaar én het element neemt geen ruimte in.</li>
+            </ul>
+            <p>Voorbeeld:</p>
+            <pre class="code-block prism-okaida"><code>brdDetails.Visibility = Visibility.Hidden;
+brdDetails.Visibility = Visibility.Collapsed;</code></pre>
+         </div>
+         <div class="assignment box">
+            <h3>Deel 1: UI opbouwen</h3>
+            <ul>
+               <li>Voorzie een <code>Border</code> met naam <code>brdDetails</code> met tekst erin.</li>
+               <li>Voorzie een <code>CheckBox</code> <code>chkUseHidden</code> met tekst: <strong>Gebruik Hidden (neemt plaats in)</strong>.</li>
+               <li>Voorzie een <code>Button</code> <code>btnCycle</code> met tekst: <strong>Volgende toestand</strong>.</li>
+               <li>Voorzie een <code>Button</code> <code>btnReset</code> met tekst: <strong>Reset</strong>.</li>
+               <li>Voorzie een <code>TextBlock</code> <code>txtStatus</code> dat de huidige toestand toont.</li>
+            </ul>
+            <h3>Deel 2: Cyclisch wisselen</h3>
+            <ul>
+               <li>Bij klik op <code>btnCycle</code> wissel je tussen zichtbaar en verborgen.</li>
+               <li>
+                  Als het element zichtbaar is en je verbergt het:
+                  <ul>
+                     <li>als <code>chkUseHidden</code> aangevinkt is → gebruik <code>Hidden</code></li>
+                     <li>anders → gebruik <code>Collapsed</code></li>
+                  </ul>
+               </li>
+               <li>Als het element verborgen is → maak het terug <code>Visible</code>.</li>
+            </ul>
+            <h3>Deel 3: Status en Reset</h3>
+            <ul>
+               <li>Toon de huidige toestand in <code>txtStatus</code> (bijv. <strong>Status: Visible</strong>).</li>
+               <li><code>btnReset</code> zet alles terug naar <code>Visible</code> en werkt de status bij.</li>
+            </ul>
+         </div>
+      </section>
+
+      <!-- Oefening 10: Course Registration -->
+      <section class="exercise" id="ex10">
+         <h2>Course Registration</h2>
+         <p class="goal">Doel: meerdere controls combineren; logica centraliseren in één updatefunctie.</p>
+         <div class="info box">
+            <h3>Theorie: alles updaten via 1 functie</h3>
+            <p>
+               In deze oefening veranderen meerdere controls de output (TextBox, ComboBox, RadioButtons, ListBox en Slider).
+               Je mag de logica daarom niet dupliceren in elke event handler.
+            </p>
+            <ul>
+               <li>Maak 1 functie (bijv. <code>UpdateUi()</code>).</li>
+               <li>Elke event handler roept die functie op.</li>
+               <li>Die functie leest alle waarden uit en werkt de samenvatting en de knopstatus bij.</li>
+            </ul>
+            <p>Voorbeeld:</p>
+            <pre class="code-block prism-okaida"><code>private void AnyInputChanged(...) { UpdateUi(); }</code></pre>
+         </div>
+         <div class="assignment box">
+            <h3>Deel 1: UI opbouwen</h3>
+            <ul>
+               <li><code>txtName</code> (TextBox) voor de naam.</li>
+               <li><code>cboCourse</code> (ComboBox) met keuzes: C#, JavaScript, Python.</li>
+               <li>
+                  2 RadioButtons met dezelfde <code>GroupName</code>:
+                  <ul>
+                     <li><code>rdoBeginner</code> (Beginner)</li>
+                     <li><code>rdoAdvanced</code> (Advanced)</li>
+                  </ul>
+               </li>
+               <li><code>lstWorkshops</code> (ListBox) met <code>SelectionMode="Multiple"</code>.</li>
+               <li><code>sldDays</code> (Slider) met bereik 1 tot 5.</li>
+               <li><code>chkTerms</code> (CheckBox) voor akkoord.</li>
+               <li><code>btnRegister</code> (Button) start disabled.</li>
+               <li><code>txtSummary</code> (TextBlock) start met <strong>...</strong>.</li>
+            </ul>
+            <h3>Deel 2: Events koppelen</h3>
+            <ul>
+               <li><code>txtName</code> krijgt <code>TextChanged</code>.</li>
+               <li><code>cboCourse</code> krijgt <code>SelectionChanged</code>.</li>
+               <li>RadioButtons krijgen <code>Checked</code>.</li>
+               <li><code>lstWorkshops</code> krijgt <code>SelectionChanged</code>.</li>
+               <li><code>sldDays</code> krijgt <code>ValueChanged</code>.</li>
+               <li><code>chkTerms</code> krijgt <code>Checked</code> en <code>Unchecked</code>.</li>
+               <li>Alle events roepen dezelfde handler op (bijv. <code>AnyInputChanged</code>), die <code>UpdateUi()</code> aanroept.</li>
+            </ul>
+            <h3>Deel 3: Logica en validatie</h3>
+            <ul>
+               <li>Werk in <code>UpdateUi()</code> met <code>Trim()</code> op de naam.</li>
+               <li>
+                  Validatie:
+                  <ul>
+                     <li>Naam is minstens 2 karakters.</li>
+                     <li>Er is een cursus gekozen (<code>SelectedIndex != -1</code>).</li>
+                     <li>Er is een niveau gekozen (1 van de radio buttons).</li>
+                     <li><code>chkTerms</code> is aangevinkt.</li>
+                  </ul>
+               </li>
+               <li>Pas als alles geldig is, zet je <code>btnRegister.IsEnabled</code> op <code>true</code>.</li>
+               <li>Als het niet geldig is: zet <code>txtSummary</code> op <strong>...</strong>.</li>
+            </ul>
+            <h3>Deel 4: Samenvatting</h3>
+            <ul>
+               <li>
+                  Toon in <code>txtSummary</code> deze info:
+                  <ul>
+                     <li>Naam</li>
+                     <li>Cursus</li>
+                     <li>Niveau</li>
+                     <li>Dagen (sliderwaarde als geheel getal)</li>
+                     <li>
+                        Workshops:
+                        <ul>
+                           <li>toon alle geselecteerde items uit <code>SelectedItems</code></li>
+                           <li>als er geen geselecteerd is: toon <strong>geen</strong></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            <h3>Deel 5: Inschrijven</h3>
+            <ul>
+               <li>Bij klik op <code>btnRegister</code> toon je een <code>MessageBox</code>: <strong>Inschrijving voltooid!</strong></li>
+            </ul>
+         </div>
+      </section>
+
+      <!-- Oefening 11: Price Configurator -->
+      <section class="exercise" id="ex11">
+         <h2>Price Configurator</h2>
+         <p class="goal">Doel: meerdere controls combineren (ComboBox, CheckBox, Slider) met een gecentraliseerde berekeningsfunctie.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               In deze oefening zullen meerdere controls de UI kunnen aanpassen (ComboBox, CheckBoxes en Slider).
+               Je mag de berekeningslogica daarom niet dupliceren in elke event handler.
+            </p>
+            <ul>
+               <li>Maak één aparte functie (bijv. <code>UpdatePrice()</code>).</li>
+               <li>Elke event handler roept die functie op.</li>
+               <li>Die functie leest alle waarden uit en werkt de UI bij.</li>
+            </ul>
+         </div>
+         <div class="assignment box">
+            <h3>Deel 1: UI opbouwen</h3>
+            <ul>
+               <li>ComboBox <code>cboProduct</code> met items: Basic, Plus, Pro.</li>
+               <li>CheckBox <code>chkSupport</code> met tekst: Support (+2 per stuk).</li>
+               <li>CheckBox <code>chkGiftWrap</code> met tekst: Gift wrap (+1 per stuk).</li>
+               <li>Slider <code>sldQty</code> met bereik 1 tot 10.</li>
+               <li>Button <code>btnOrder</code> (start disabled).</li>
+               <li>TextBlocks voor output: <code>txtLine1</code>, <code>txtLine2</code>, <code>txtLine3</code>, <code>txtTotal</code>, <code>txtDelta</code>.</li>
+            </ul>
+            <h3>Deel 2: Prijs berekenen</h3>
+            <ul>
+               <li>Basic = 5 per stuk, Plus = 8 per stuk, Pro = 12 per stuk.</li>
+               <li>Extra's zijn per stuk: Support +2, Gift wrap +1.</li>
+               <li>Totaal = (basis + extra's per stuk) &times; aantal.</li>
+               <li>Toon een samenvatting in de output.</li>
+            </ul>
+            <h3>Deel 3: Gedrag</h3>
+            <ul>
+               <li>Als geen product gekozen is: zet <code>btnOrder</code> disabled en toon geen totaal.</li>
+               <li>Elke wijziging (ComboBox, CheckBox, Slider) moet de output live updaten.</li>
+               <li>Toon ook het verschil t.o.v. de vorige berekening in <code>txtDelta</code>.</li>
+            </ul>
+         </div>
+      </section>
+
+      <!-- Oefening 12: OXO -->
+      <section class="exercise" id="ex12">
+         <h2>OXO</h2>
+         <p class="goal">Doel: werken met het <code>sender</code> object.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Bouw een eenvoudig OXO-spel waarbij afwisselend "O" of "X" verschijnt. De winnaar bepalen is niet zo eenvoudig en maakt geen deel uit van deze oefening.
+            </p>
+            <p>
+               Meerdere controls kunnen dezelfde event handler gebruiken. In de event handler is <code>sender</code> de control die het event veroorzaakte (zie <a href="https://rogiervdl.github.io/CS-course/07_wpf.html#event-sender">theorie</a>).
+               We gebruiken het in deze oefening om één <code>Click</code>-event aan de 9 buttons te koppelen.
+            </p>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <p>Gegeven is een 3x3 <code>Grid</code> met buttons.</p>
+            <ul>
+               <li>
+                  Voeg een <code>Click</code> event toe aan de eerste button. Hernoem de event handler naar <code>OxoButton_Click</code> (gebruik de rechtermuisknop).
+               </li>
+               <li>
+                  Kopieer in de XAML het <code>Click</code> attribuut met verwijzing naar de eventhandler naar de andere 8 buttons.
+               </li>
+            </ul>
+            <h3>Code-behind</h3>
+            <ul>
+               <li>In de event handler vraag je eerst de button waarop geklikt werd op via het <code>sender</code> object. Toon afwisselend een 'O' of 'X'. Disable telkens de button.</li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/SenderOxo.png" alt="" width="200">
+               <figcaption>screenshot</figcaption>
+            </figure>
+         </div>
+      </section>
+
+      <!-- Oefening 13: Select And Move -->
+      <section class="exercise" id="ex13">
+         <h2>Select And Move</h2>
+         <p class="goal">Doel: gebruik <code>ListBox</code>/<code>ListBoxItem</code> met het <code>SelectionChanged</code> event.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Lees eerst grondig de <a href="https://rogiervdl.github.io/CS-course/07_wpf.html#listbox">theorie over de ListBox</a>.
+               Een <code>ListBox</code> toont een lijst met items. In theorie kan een item van alles zijn, zelfs een zuivere <code>string</code>,
+               maar maak er een goede gewoonte van enkel objecten van het type <code>ListBoxItem</code> toe te voegen. Gebruik verder properties als <code>Items</code>, <code>SelectedItem</code> en <code>SelectedIndex</code>, en het <code>SelectionChanged</code> event.
+            </p>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <p>Een gedeelte van de XAML is al voorzien.</p>
+            <ul>
+               <li>Voeg twee ListBoxes toe: een listbox links met startitems C#, Java, JavaScript, Python, SQL; en een lege listbox rechts.</li>
+               <li>Disable beide buttons met <code>IsEnabled</code>.</li>
+            </ul>
+            <h3>Code-behind</h3>
+            <ul>
+               <li>
+                  Voeg een <code>Click</code>-event toe aan elk van de buttons. Bij klik:
+                  <ul>
+                     <li>vraag het geselecteerde item op met de <code>SelectedItem</code> property</li>
+                     <li>verwijder dit item uit de geselecteerde lijst met <code>Remove()</code></li>
+                     <li>voeg dit item toe aan de andere lijst met <code>Add()</code></li>
+                  </ul>
+               </li>
+               <li>
+                  Zorg er nu voor dat de buttons enkel enabled zijn als een item in de relevante lijst geselecteerd is:
+                  <ul>
+                     <li>voeg aan beide <code>ListBox</code>-en een <code>SelectionChanged</code> event handler toe; gebruik dezelfde event handler voor beiden</li>
+                     <li>stel de button states in: de bovenste button is enabled als er een item links geselecteerd is, en analoog voor de onderste button</li>
+                  </ul>
+               </li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/SelectAndMove1.png" alt="" width="600">
+               <img src="img/SelectAndMove2.png" alt="" width="600">
+               <img src="img/SelectAndMove3.png" alt="" width="600">
+               <figcaption>screenshots</figcaption>
+            </figure>
+         </div>
+      </section>
+
+      <!-- Oefening 14: Animal Sounds -->
+      <section class="exercise" id="ex14">
+         <h2>Animal Sounds</h2>
+         <p class="goal">Doel: media toevoegen aan je project; gebruik <code>SoundPlayer</code>; gebruik <code>Tag</code> property.</p>
+         <div class="info box">
+            <h3>Media toevoegen aan je project</h3>
+            <p>We tonen vier afbeeldingen van dieren; bij een mouse over klinkt het geluid van dat dier.</p>
+            <ul>
+               <li>
+                  Maak in de folder <em>Exercises</em> twee subfolders: <em>Images</em> en <em>Sounds</em>.
+               </li>
+               <li>
+                  Sleep daarin de geluiden en de afbeeldingen meegegeven bij deze oefening (zie Toledo).
+               </li>
+               <li>
+                  Stel geluiden en afbeeldingen in als content, en laat ze mee kopiëren naar de output directory, zie <a href="https://rogiervdl.github.io/DEVENV-course/04_visualstudio.html#media-en-andere-bestanden-toevoegen">deze uitleg</a>.
+               </li>
+            </ul>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <ul>
+               <li>
+                  Maak een horizontale <code>StackPanel</code> met daarin vier afbeeldingen met <code>Image</code>; stel hoogte en breedte in op 100px.
+               </li>
+               <li>
+                  Voeg aan elke <code>Image</code> een <code>Tag</code> attribuut toe met het pad naar het af te spelen geluid.
+               </li>
+            </ul>
+            <h3>Code-behind</h3>
+            <ul>
+               <li>
+                  Voeg dezelfde <code>MouseEnter</code> event handler toe aan de vier afbeeldingen (een <code>Image</code> kent geen <code>Click</code> event).
+               </li>
+               <li>
+                  In de event handler: speel het geluid af met <code>SoundPlayer</code>, zie <a href="https://rogiervdl.github.io/CS-course/A_dotnet.html#soundplayer">deze uitleg</a>.
+               </li>
+            </ul>
+            <figure class="screenshot">
+               <img src="img/AnimalSounds.png" alt="" width="500">
+               <figcaption>screenshot</figcaption>
+            </figure>
+         </div>
+      </section>
+
+   </main>
+
+   <footer class="page-footer" aria-label="Pagina-voetnoot">
+      <p>OOAD WPF Controls oefenblad.</p>
+   </footer>
+
+   <script src="vendor/prism.js"></script>
+</body>
+
+</html>

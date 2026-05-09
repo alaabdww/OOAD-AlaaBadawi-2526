@@ -1,0 +1,25 @@
+﻿<Page x:Class="WpfControlsOefenblad.Exercises.IntroPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Intro" Background="#ffffee">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20" MaxWidth="900">
+
+            <TextBlock FontSize="26" FontWeight="SemiBold" Margin="0,0,0,15">
+                WPF Controls – Oefenblad
+            </TextBlock>
+
+            <TextBlock FontSize="14" TextWrapping="Wrap" Margin="0,0,0,10">
+                Dit oefenblad is een verzameling van kleine oefeningen. 
+                Open voor elke oefening telkens de XAML en code-behind, te vinden in de map <Run FontWeight="Bold">Exercises</Run> van dit project. We zien alleen de belangrijkste controls, maar er zijn er nog meer: <Run FontFamily="Consolas">DatePicker</Run>, <Run FontFamily="Consolas">Rectangle</Run>, <Run FontFamily="Consolas">Password</Run>...
+            </TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="14" LineHeight="1.8">
+                1. Open <Run FontStyle="Italic">Assignments/index.html</Run> in de browser.' in de browser; daar vind je de uitleg en opdrachten.<LineBreak/>
+                2. Elke oefening vind je in de map <Run FontStyle="Italic">Exercises</Run>; vul daar telkens de code aan<LineBreak/>
+                3. Run het programma en controleer of de output klopt met de screenshots.<LineBreak/>
+            </TextBlock>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>
