@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="../../../Downloads/WpfControlsOefenblad/WpfControlsOefenblad/WpfControlsOefenblad.csproj" />
+  <Project Path="WpfTaken/WpfTaken.csproj" Id="4a9d2570-7d23-4b16-8604-92136845652b" />
 </Solution>
