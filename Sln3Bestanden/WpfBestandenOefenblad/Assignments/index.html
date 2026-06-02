@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>WPF Bestanden oefenblad</title>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&display=swap">
+   <link rel="stylesheet" href="vendor/prism-default.css">
+   <link rel="stylesheet" href="vendor/prism-okaida.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="stylesheet" href="css/mods.css">
+</head>
+
+<body class="prism language-csharp">
+
+   <header class="page-header" aria-label="Paginakop">
+      <h1>WPF Bestanden oefenblad</h1>
+      <p>
+         Dit is een oefenblad bij het hoofdstuk
+         <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html">Bestanden</a>.
+      </p>
+   </header>
+
+   <main>
+      <section class="intro box" aria-label="Inleiding">
+         <h2>Hoe los je dit oefenblad op?</h2>
+         <ol>
+            <li>Open dit oefenblad in <strong>Visual Studio 2026</strong>.</li>
+            <li>De oefeningen vind je in de map <em>Exercises</em>, de opdrachten vind je hieronder</li>
+            <li>Vul overal bij de oefeningen de code aan.</li>
+            <li>Run het oefenblad en controleer het resultaat</li>
+         </ol>
+         <p>Overzicht van de oefeningen:</p>
+         <ol>
+            <li><a href="#ex1">Pad Builder</a></li>
+            <li><a href="#ex2">Lees CSV</a></li>
+            <li><a href="#ex3">Kies Afbeelding</a></li>
+            <li><a href="#ex4">Schrijf Tekst</a></li>
+            <li><a href="#ex5">Excepties</a></li>
+            <li><a href="#ex6">Lees Speciale Map</a></li>
+         </ol>
+      </section>
+
+      <!-- Oefening 1: Pad Builder -->
+      <section class="exercise" id="ex1">
+         <h2>Pad Builder</h2>
+         <p class="goal">Doel: een volledig bestandspad samenstellen uit een speciale map (keuze via radiobuttons), een subpad en een bestandsnaam. Het resultaat wordt gegenereerd met <code>Path.Combine</code> en getoond in een TextBlock.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               De theorie vind je op <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html#paden">https://rogiervdl.github.io/CS-course/09_bestanden.html#paden</a>
+            </p>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <p>De XAML is gegeven.</p>
+            <h3>Code-behind</h3>
+            <ol>
+               <li>Bij klik op de knop, stel het volledige pad samen met <code>Path.Combine()</code> en toon het onderaan.</li>
+               <li>Normaliseer de gebruikte slashes met <code>.Replace('\\', '/');</code></li>
+            </ol>
+            <p>Verwacht resultaat:</p>
+            <p><img src="img/PadBuilder.png" alt="" width="600"></p>
+         </div>
+      </section>
+
+      <!-- Oefening 2: Lees CSV -->
+      <section class="exercise" id="ex2">
+         <h2>Lees CSV</h2>
+         <p class="goal">Doel: een CSV-bestand inlezen en gegevens tonen/verwerken.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               De theorie vind je op <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html#bestand-inlezen-in-een-array">https://rogiervdl.github.io/CS-course/09_bestanden.html#bestand-inlezen-in-een-array</a>
+            </p>
+         </div>
+         <div class="assignment box">
+            <h3>Project</h3>            
+            <p>Bij de opgave krijg je een bestand <em>verkoop.csv</em> met volgende structuur:</p>
+            <pre class="code-block language-csv"><code>Product;Quantity;Price
+Laptop;5;899
+Mouse;12;25
+Keyboard;7;45
+Laptop;3;899
+Mouse;4;25
+...</code></pre>
+            <p>De eerste rij stellen de headers (titels) voor, de volgende rijen telkens één record.</p>
+            <ol>
+               <li>Maak een map <em>Exercises/Files</em> en kopieer daarin het bestand <em>verkoop.csv</em>.</li>
+               <li>Stel het bestand in als Content en laat het mee kopiëren naar de output folder zoals geleerd vorige les (zie ook de <a href="https://rogiervdl.github.io/DEVENV-course/04_visualstudio.html#media-en-andere-bestanden-toevoegen">DEVENV cursus</a>).</li>
+            </ol>
+            <h3>XAML</h3>
+            <ol>
+               <li>Maak een <code>Grid</code> met drie rijen: <code>Auto</code>, <code>*</code> en <code>Auto</code>.</li>
+               <li>Steek in de eerste rij een <code>Button</code>, in de tweede een <code>ListBox</code> en in de derde een <code>TextBlock</code>.</li>
+            </ol>
+            <h3>Code-behind</h3>
+            <p>Bij druk op de knop:</p>
+            <ol>
+               <li>Wis de lijst en de tekst onderaan.</li>
+               <li>Lees het CSV-bestand in een array in.</li>
+               <li>Splits elke rij rond de puntkomma's en voeg een item toe aan de lijst.</li>
+               <li>Bepaal het totaalbedrag door telkens prijs met aantal te vermenigvuldigen en toon het onderaan.</li>
+            </ol>
+            <p>Verwacht resultaat:</p>
+            <p><img src="img/LeesCsv.png" alt="" width="500"></p>
+         </div>
+      </section>
+
+      <!-- Oefening 3: Kies Afbeelding -->
+      <section class="exercise" id="ex3">
+         <h2>Kies Afbeelding</h2>
+         <p class="goal">Doel: een afbeelding kiezen met <code>OpenFileDialog</code> en tonen in een <code>Image</code>-control. Filter op jpg en jpeg.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>De theorie vind je op <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html#openfiledialog">https://rogiervdl.github.io/CS-course/09_bestanden.html#openfiledialog</a></p>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <ul>
+               <li>Maak een <code>StackPanel</code> met een <code>Button</code>, een <code>Image</code> en een <code>TextBlock</code> control.</li>
+            </ul>
+            <h3>Code-behind</h3>
+            <ol>
+               <li>Bij een klik op de button, toon een <code>OpenFileDialog</code> (namespace <code>Microsoft.Win32</code>), met filter op <code>*.jpg;*.jpeg</code>, en de startfolder op <em>Mijn afbeeldingen</em>.</li>
+               <li>Als de gebruiker op OK klikt, toon de afbeelding in de <code>Image</code> en de bestandsnaam in de <code>TextBlock</code>.</li>
+               <li>Als de gebruiker het dialoogvenster sluit zonder kiezen, toon je de tekst "kiezen afbeelding geannuleerd".</li>
+            </ol>
+            <p>Codefragment om de afbeelding te laden en te tonen:</p>
+            <pre class="code-block"><code>BitmapImage bitmap = new BitmapImage();
+bitmap.BeginInit();
+bitmap.UriSource = new Uri(&lt;filename&gt;, UriKind.Absolute);
+bitmap.EndInit();
+imgAfbeelding.Source = bitmap;</code></pre>
+            <p>Opmerking: voor <code>BitmapImage</code> moet je de <code>System.Windows.Media.Imaging</code> namespace toevoegen.</p>
+            <p>Verwacht resultaat:</p>
+            <p><img src="img/KiesAfbeelding.png" alt="" width="600"></p>
+         </div>
+      </section>
+
+      <!-- Oefening 4: Schrijf Tekst -->
+      <section class="exercise" id="ex4">
+         <h2>Schrijf Tekst</h2>
+         <p class="goal">Doel: tekst kunnen opslaan in een bestand via <code>SaveFileDialog</code> en <code>File.WriteAllText()</code>.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               De theorie over <code>SaveFileDialog</code> vind je op <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html#savefiledialog">https://rogiervdl.github.io/CS-course/09_bestanden.html#savefiledialog</a>
+               <br>De theorie over schrijven van bestanden vind je op <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html#string-schrijven-naar-een-bestand">https://rogiervdl.github.io/CS-course/09_bestanden.html#string-schrijven-naar-een-bestand</a>
+            </p>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <ol>
+               <li>Voeg een <code>StackPanel</code> toe met een <code>Label</code>, een <code>TextBox</code> (meerdere regels!) en een <code>Button</code>.</li>
+            </ol>
+            <h3>Code-behind</h3>
+            <ol>
+               <li>Bij klik op de knop: toon een <code>SaveFileDialog</code> (namespace <code>Microsoft.Win32</code>), stel de filter in op teksten (<code>*.txt</code>), de startfolder op <em>Mijn documenten</em> en de standaard filename op <em>untitled.txt</em>.</li>
+               <li>Schrijf bij bevestiging de tekst weg met <code>File.WriteAllText()</code>.</li>
+            </ol>
+            <p>Tip: genereer een random tekst op <a href="https://randomtextgenerator.com/">https://randomtextgenerator.com/</a></p>
+            <p>Verwacht resultaat:</p>
+            <p><img src="img/SchrijfTekst.png" alt="" width="500"></p>
+         </div>
+      </section>
+
+      <!-- Oefening 5: Excepties -->
+      <section class="exercise" id="ex5">
+         <h2>Excepties</h2>
+         <p class="goal">Doel: exception handling toevoegen aan bestaande code.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               De theorie over exception handling vind je op <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html#exception-handling">https://rogiervdl.github.io/CS-course/09_bestanden.html#exception-handling</a>.
+            </p>
+         </div>
+         <div class="assignment box">
+            <p>
+               De applicatie kan een speciale map selecteren (<em>Desktop</em>, <em>Mijn Afbeeldingen</em>, <em>Mijn Documenten</em>, <em>Mijn Muziek</em>),
+               waarna de bestanden in die map getoond worden in een lijst. Als je een bestand selecteert, verschijnt de bestandsinfo.
+               Het lezen van mappen met <code>Directory.GetFiles()</code> en het ophalen van bestandsinfo met <code>FileInfo</code> kan verschillende fouten opleveren; we voegen daarvoor exception handling toe.
+            </p>
+            <p>Screenshot:</p>
+            <p><img src="img/Excepties.png" alt="" width="600"></p>
+            <h3>Code-behind</h3>
+            <ol>
+               <li>Voeg exception handling toe rond <code>Directory.GetFiles()</code>; gebruik minstens <code>UnauthorizedAccessException</code>, <code>DirectoryNotFoundException</code> en <code>IOException</code>.</li>
+               <li>Voeg exception handling toe rond <code>FileInfo</code>; gebruik minstens <code>UnauthorizedAccessException</code>, <code>FileNotFoundException</code> en <code>IOException</code>.</li>
+            </ol>
+            <h3>Tips</h3>
+            <ul>
+               <li>Let goed op alle <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html#hoe-gebruiken">regels en best practices</a> i.v.m. excepties.</li>
+               <li>Test je oplossing o.a. door een bestand in de lijst te selecteren dat je intussen in Verkenner hebt verwijderd.</li>
+            </ul>
+            <p>Resultaat als je na het weergeven van de lijst een bestand verwijdert in Verkenner, en dan weer selecteert:</p>
+            <p><img src="img/Excepties2.png" alt="" width="600"></p>
+         </div>
+      </section>
+
+      <!-- Oefening 6: Lees Speciale Map -->
+      <section class="exercise" id="ex6">
+         <h2>Lees Speciale Map</h2>
+         <p class="goal">Doel: gebruik speciale mappen (<em>Desktop</em>, <em>Mijn Documenten</em>, <em>Mijn Afbeeldingen</em>...), lezen mapinhoud en bestandsinfo opvragen.</p>
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               De theorie over speciale mappen vind je op <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html#systeemmappen-vinden">https://rogiervdl.github.io/CS-course/09_bestanden.html#systeemmappen-vinden</a>
+               <br>De theorie over lezen van een mapinhoud vind je op <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html#map-inhoud-lezen">https://rogiervdl.github.io/CS-course/09_bestanden.html#map-inhoud-lezen</a>
+               <br>De theorie voor het opvragen van bestandsinfo vind je op <a href="https://rogiervdl.github.io/CS-course/09_bestanden.html#informatie-opvragen">https://rogiervdl.github.io/CS-course/09_bestanden.html#informatie-opvragen</a>
+            </p>
+         </div>
+         <div class="assignment box">
+            <h3>XAML</h3>
+            <p>De XAML is gegeven.</p>
+            <h3>Code-behind</h3>
+            <ol>
+               <li>Voeg één click event handler toe voor de drie buttons; gebruik <code>sender</code> zoals geleerd in de vorige les om de juiste button op te halen.</li>
+               <li>Bepaal uit het <code>Tag</code> attribuut van de geklikte button om welke speciale folder het gaat (<code>Environment.SpecialFolder folder = ...</code>).</li>
+               <li>Vraag de bestanden van die speciale folder op met <code>Directory.GetFiles()</code>.</li>
+               <li>Itereer over de bestanden; vraag de informatie op met <code>FileInfo</code> en toon het zoals op de screenshot hieronder.</li>
+            </ol>
+            <p>Verwacht resultaat:</p>
+            <p><img src="img/LeesSpecialeMap.png" alt="" width="500"></p>
+         </div>
+      </section>
+
+   </main>
+
+   <footer class="page-footer" aria-label="Pagina-voetnoot">
+      <p>OOAD WPF Bestanden oefenblad.</p>
+   </footer>
+
+   <script src="vendor/prism.js"></script>
+</body>
+
+</html>

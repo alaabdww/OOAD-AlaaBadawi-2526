@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfTaken.MainWindow"
+<Window x:Class="WpfTaken.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -71,13 +71,15 @@
                        Grid.ColumnSpan="2"
                        Text=""
                        TextWrapping="Wrap"
-                       VerticalAlignment="Center" Height="80"/>
+                       VerticalAlignment="Center" Height="80" 
+                       Foreground="Red"
+                       FontStyle="Italic"/>
         </Grid>
 
         <ListBox Name="lstTaken"
                  Grid.Column="2"
                  Grid.Row="0"
-                 Margin="0,0,0,10"/>
+                 Margin="0,0,0,10" SelectionChanged="lstTaken_SelectionChanged"/>
 
         <StackPanel Grid.Column="2"
                     Grid.Row="1"
@@ -89,12 +91,12 @@
                     Width="95"
                     Height="32"
                     Margin="0,0,18,0"
-                    IsEnabled="False"/>
+                    IsEnabled="False" Click="btnTerugzetten_Click"/>
             <Button Name="btnVerwijderen" 
                     Content="VERWIJDEREN"
                     Width="95"
                     Height="32"
-                    IsEnabled="False"/>
+                    IsEnabled="False" Click="btnVerwijderen_Click"/>
         </StackPanel>
     </Grid>
 </Window>
