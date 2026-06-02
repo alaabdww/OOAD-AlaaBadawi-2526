@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="WPFOefenblad/WPFOefenblad.csproj" Id="63a20a40-72e9-4afe-b815-437d3822c018" DisplayName="WpfOefenblad" />
   <Project Path="WpfVcardEditor/WpfVcardEditor.csproj" Id="d3cd047a-10cd-4703-9f80-5fca00cfb2e2" />
 </Solution>

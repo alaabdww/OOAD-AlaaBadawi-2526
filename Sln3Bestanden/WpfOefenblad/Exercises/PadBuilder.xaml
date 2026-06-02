@@ -42,7 +42,7 @@
                 <TextBox x:Name="txtBestandsnaam" Grid.Row="2" Grid.Column="1" Margin="10" Padding="4,2" Text="randombestand.aspx"/>
 
                 <Button x:Name="btnGenereerPad" Content="Genereer pad" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
-                        Padding="8,4" HorizontalAlignment="Left" Margin="10" />
+                        Padding="8,4" HorizontalAlignment="Left" Margin="10" Click="btnGenereerPad_Click" />
 
                 <TextBlock x:Name="txtResultaat" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" FontFamily="Consolas" Margin="10"/>
             </Grid>
