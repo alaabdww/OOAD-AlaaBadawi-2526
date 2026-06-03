@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Klassen oefenblad</title>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&display=swap">
+   <link rel="stylesheet" href="vendor/prism-default.css">
+   <link rel="stylesheet" href="vendor/prism-okaida.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="stylesheet" href="css/mods.css">
+</head>
+
+<body class="prism language-csharp">
+
+   <header class="page-header" aria-label="Paginakop">
+      <h1>Klassen oefenblad</h1>
+      <p>
+         Dit is een oefenblad bij het hoofdstuk
+         <a href="https://rogiervdl.github.io/CS-course/10_classes.html">Klassen</a>.
+      </p>
+   </header>
+
+   <main>
+      <section class="intro box" aria-label="Inleiding">
+         <h2>Hoe los je dit oefenblad op?</h2>
+         <ol>
+            <li>Open de solution van dit oefenblad in <strong>Visual Studio 2026</strong>.</li>
+            <li>Alle oefeningen vind je in de map <em>Exercises</em>.</li>
+            <li>Maak de gevraagde klasse(s) aan in <em>Exercises/Classes</em>.</li>
+            <li>Haal de testcode uit commentaar om je klasse te testen.</li>
+            <li>Controleer of de output overeenkomt met de screenshot(s).</li>
+         </ol>
+         <p>Overzicht van de oefeningen:</p>
+         <ol>
+            <li><a href="#ex1">Lege klasse</a></li>
+            <li><a href="#ex2">Properties</a></li>
+            <li><a href="#ex3">Validatie &amp; methodes</a></li>
+            <li><a href="#ex4">ToString()</a></li>
+            <li><a href="#ex5">Compositie</a></li>
+            <li><a href="#ex6">Constructors</a></li>
+         </ol>
+      </section>
+
+      <!-- Oefening 1: Lege klasse -->
+      <section class="exercise" id="ex1">
+         <h2>Lege klasse</h2>
+         <p class="goal">Doel: een lege klasse aanmaken en instanties uit maken</code>.</p>
+
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Een <strong>klasse</strong> is een blauwdruk voor objecten. Je maakt het aan met <code>class</code>:
+            </p>
+            <pre class="code-block language-csharp"><code>// een lege klasse — geen properties, geen constructors
+public class Auto
+{
+}</code></pre>
+            <p>
+               Daarna kan je zoveel instanties maken als je wil met <code>new</code>:
+            </p>
+            <pre class="code-block prism-default language-csharp"><code>// instanties aanmaken
+Auto mijnFord = new Auto();
+Auto mijnKever = new Auto();
+Auto autoX = new Auto();
+...</code></pre>
+            <p>Je kan de klasse en de instanties die je eruit maakt gebruiken zoals elk gegevenstype en variabelen, zoals in lijsten of methodes:</p>
+            <pre class="code-block prism-default language-csharp"><code>// gebruik in een methode
+public static void (Auto a) {
+   ...
+}
+
+// gebruik in een List
+List&lt;Auto&gt; wagenpark = new List&lt;Auto&gt;() { mijnFord, mijnKever, autoX };
+Console.WriteLine($"Aantal auto's: {wagenpark.Count}"); // 5</code></pre>
+         </div>
+
+         <div class="assignment box">
+            <h3>Opgave</h3>
+            <ol>
+               <li>Maak in de map <em>Exercises/Classes</em> een lege klasse <code>Knikker</code>, zonder properties of constructors.</li>
+               <li>Maak een <code>List&lt;Knikker&gt;</code> met de naam <code>potje</code>.</li>
+               <li>Voeg met een lus 10 knikkers toe aan de lijst.</li>
+               <li>Toon hoeveel knikkers er in het potje zitten.</li>
+            </ol>
+            <p>Verwacht resultaat:</p>
+            <pre class="prism-okaida language-none"><code>Oefening 1: lege klasse
+-------------
+Er zitten 10 knikkers in het potje.</code></pre>
+         </div>
+      </section>
+
+      <!-- Oefening 2: Properties -->
+      <section class="exercise" id="ex2">
+         <h2>Properties</h2>
+         <p class="goal">Doel: gebruik van properties in een klasse; standaardwaarden; object initializer syntax.</p>
+
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Properties zijn (meestal) publiek beschikbare eigenschappen van een object. 
+               Voorlopig beperken we ons tot properties die je vrij kan lezen en schrijven met <code>{ get; set; }</code>; dit noemt men <strong>automatische properties</strong>.
+            </p>
+            <pre class="code-block language-csharp"><code>public class Auto
+{
+    public string Merk { get; set; }
+    public int Bouwjaar { get; set; }
+    public bool IsElektrisch { get; set; } = false;  // standaardwaarde
+    public List&lt;string&gt; Opties { get; set; } = new List&lt;string&gt;(); // standaard lege lijst
+}</code></pre>
+            <p>Properties instellen kan op twee manieren. De eerste manier is door ze één voor één in te stellen na het aanmaken van het object:</p>
+            <pre class="code-block language-csharp"><code>Auto a1 = new Auto();
+a1.Merk = "Toyota";
+a1.Bouwjaar = 2021;
+a1.IsElektrisch = true;
+a1.Opties = new List&lt;string&gt; { "Autopilot", "Panoramadak" };
+</code></pre>
+            <p>Of compacter met de <strong>object initializer syntax</strong> (alles in één stap):</p>
+            <pre class="code-block language-csharp"><code>Auto a1 = new Auto
+{
+    Merk = "Toyota",
+    Bouwjaar = 2021,
+    IsElektrisch = true,
+    Opties = new List&lt;string&gt; { "Autopilot", "Panoramadak" }
+};</code></pre>
+         </div>
+
+         <div class="assignment box">
+            <h3>Opgave</h3>
+            <ol>
+               <li>
+                  Maak in <em>Exercises/Classes</em> een klasse <code>Recept</code> met volgende properties:
+                  <ul>
+                     <li><code>Titel</code> (string)</li>
+                     <li><code>Rating</code> (int)</li>
+                     <li><code>IsVegetarisch</code> (bool, standaardwaarde <code>false</code>)</li>
+                     <li><code>Ingredienten</code> (List van strings, standaard lege lijst)</li>
+                  </ul>
+               </li>
+               <li>
+                  Maak het recept <strong>Pasta Carbonara</strong> aan met de lege constructor en stel de properties daarna één voor één in:
+                  Rating 4, Ingrediënten: Pasta, Eieren, Spek, Parmezaanse kaas.
+               </li>
+               <li>
+                  Maak de volgende recepten aan met de <em>object initializer syntax</em>:
+                  <ul>
+                     <li><strong>Vegetarische Lasagne</strong>: Rating 5, IsVegetarisch true, Ingrediënten: Lasagnebladen, Tomatensaus, Courgette, Aubergine, Mozzarella</li>
+                     <li><strong>Salade Niçoise</strong>: Rating 4, Ingrediënten: Sla, Tonijn, Eieren, Pindakaas, Olijven, Tomaten</li>
+                  </ul>
+               </li>
+               <li>Pas de Salade Niçoise aan: verwijder de pindakaas en zet <code>IsVegetarisch</code> op <code>false</code>.</li>
+               <li>Maak een lijst <code>kookboek</code> en voeg de drie recepten toe.</li>
+               <li>Toon het aantal vegetarische recepten en de gemiddelde rating.</li>
+            </ol>
+            <p>Verwacht resultaat:</p>
+            <pre class="prism-okaida language-none"><code>Oefening 2: properties, standaardwaarden, object initializer syntax
+-------------
+Aantal vegetarische recepten in het kookboek: 1
+De gemiddelde rating is 4,3.</code></pre>
+         </div>
+      </section>
+
+      <!-- Oefening 3: Validatie & methodes -->
+      <section class="exercise" id="ex3">
+         <h2>Validatie &amp; methodes</h2>
+         <p class="goal">Doel: niet-automatische properties met validatie; berekende properties; methodes.</p>
+
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Er zijn twee redenen om de getter en/of setter van een property zelf te implementeren (<strong>niet-automatische property</strong>):
+            </p>
+            <ul>
+               <li><strong>validatie</strong>: controleer de binnenkomende waarde (<code>value</code>) voor je het opslaat (in <code>field</code>) </li>
+               <li><strong>berekende</strong> property: geeft enkel een waarde terug, geen setter nodig</li>
+            </ul>
+            <pre class="code-block language-csharp"><code>public class BankRekening
+{
+    public string HouderNaam { get; set; }
+    public DateOnly AangemaaktOp { get; set; } = DateOnly.Now;
+
+    // property met validatie
+    public decimal Saldo
+    {
+        get;
+        set
+        {
+            // value: ingestelde waarde, field: opgeslagen waarde
+            if (value &lt; 0) throw new ArgumentException("saldo kan niet negatief zijn");
+            field = value; 
+        }
+    }
+
+    // berekende property: enkel getter nodig
+    public int AantalJarenOpen
+    {
+        get { return DateOnly.FromDateTime(DateTime.Today).Year - AangemaaktOp.Year; }
+    }
+
+    // methode met validatie
+    public void Afhalen(decimal bedrag)
+    {
+        if (bedrag &lt;= 0) throw new ArgumentException("bedrag moet positief zijn");
+        if (saldo - bedrag &lt;= 0) throw new ArgumentException("saldo mag niet negatief worden");
+        Saldo -= bedrag;
+    }
+}</code></pre>
+            <p>Validatie in de setter gooit een <code>ArgumentException</code> bij een ongeldige waarde:</p>
+            <pre class="code-block language-csharp"><code>BankRekening r = new BankRekening { HouderNaam = "Lena", Saldo = 600 };
+r.Afhalen(250);
+Console.WriteLine(r.Saldo); // 350
+
+r.Saldo = -100; // gooit ArgumentException: "saldo kan niet negatief zijn"
+r.Afhalen(1000); // gooit ArgumentException: "saldo mag niet negatief worden"
+</code></pre>
+         </div>
+
+         <div class="assignment box">
+            <h3>Opgave</h3>
+            <ol>
+               <li>
+                  Maak in <em>Exercises/Classes</em> een klasse <code>Werknemer</code> met volgende properties:
+                  <ul>
+                     <li><code>Id</code> (int)</li>
+                     <li><code>Naam</code> (string)</li>
+                     <li><code>Salaris</code> (decimal)</li>
+                     <li><code>InDienstSinds</code> (DateOnly)</li>
+                  </ul>
+               </li>
+               <li>
+                  Voeg validatie toe:
+                  <ul>
+                     <li>De setter van <code>Salaris</code>: gooi een <code>ArgumentException</code> met de boodschap <em>"Salaris kan niet negatief zijn"</em> als het salaris negatief is.</li>
+                     <li>De setter van <code>InDienstSinds</code>: gooi een <code>ArgumentException</code> met de boodschap <em>"Datum indiensttreding kan niet in de toekomst liggen"</em> als de datum in de toekomst ligt.</li>
+                  </ul>
+                  Test de validatie door de testcode uit commentaar te halen: één keer zonder fouten, één keer met een fout (bv. negatief salaris).
+               </li>
+               <li>
+                  Voeg twee berekende properties toe:
+                  <ul>
+                     <li><code>Ancienniteit</code>: het aantal jaar dat de werknemer al in dienst is.</li>
+                     <li><code>Seniority</code>: <em>"Junior"</em> (&lt; 2 jaar), <em>"Medior"</em> (&lt; 5 jaar) of <em>"Senior"</em>.</li>
+                  </ul>
+               </li>
+               <li>
+                  Voeg een methode <code>GeefOpslag(double percentage)</code> toe die het salaris verhoogt met het opgegeven percentage.
+               </li>
+            </ol>
+            <p>Verwacht resultaat, test met negatief salaris:</p>
+            <pre class="prism-okaida language-none"><code>Oefening 3: niet-automatische properties (validatie, berekende properties), methodes
+-------------
+Naam nieuwe werknemer: Badr
+Salaris: -1000
+In dienst sinds (yyyy-MM-dd): 2023-09-18
+<span style="color: red">Fout: Salaris kan niet negatief zijn.</span>
+
+Kaito Nakamura       | Junior | 1 jaar | €2800,00
+Priya Sharma         | Medior | 4 jaar | €3400,00
+Carlos Mendoza       | Senior | 8 jaar | €4100,00
+Na opslag verdient Carlos Mendoza nu €4510,00</code></pre>
+            <p>Verwacht resultaat, test met datum in de toekomst:</p>
+            <pre class="prism-okaida language-none"><code>Oefening 3: niet-automatische properties (validatie, berekende properties), methodes
+-------------
+Naam nieuwe werknemer: Badr
+Salaris: 2340
+In dienst sinds (yyyy-MM-dd): 2027-09-18
+<span class="red">Fout: Datum indiensttreding kan niet in de toekomst liggen.</span>
+
+Kaito Nakamura       | Junior | 1 jaar | €2800,00
+Priya Sharma         | Medior | 4 jaar | €3400,00
+Carlos Mendoza       | Senior | 8 jaar | €4100,00
+Na opslag verdient Carlos Mendoza nu €4510,00</code></pre>
+            <p>Verwacht resultaat, test met correcte invoer:</p>
+            <pre class="prism-okaida language-none"><code>Oefening 3: niet-automatische properties (validatie, berekende properties), methodes
+-------------
+Naam nieuwe werknemer: Badr
+Salaris: 2340
+In dienst sinds (yyyy-MM-dd): 2024-01-26
+
+Naam nieuwe werknemer: Cindy
+Salaris: 2510
+In dienst sinds (yyyy-MM-dd): 2023-03-12
+
+Kaito Nakamura       | Junior | 1 jaar | €2800,00
+Priya Sharma         | Medior | 4 jaar | €3400,00
+Carlos Mendoza       | Senior | 8 jaar | €4100,00
+Badr                 | Medior | 2 jaar | €2340,00
+Cindy                | Medior | 3 jaar | €2510,00
+Na opslag verdient Carlos Mendoza nu €4510,00</code></pre>
+         </div>
+      </section>
+
+      <!-- Oefening 4: ToString() -->
+      <section class="exercise" id="ex4">
+         <h2>ToString()</h2>
+         <p class="goal">Doel: de methode <code>ToString()</code> overschrijven voor een mooie tekstweergave van een object.</p>
+
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Elke klasse in C# erft impliciet over van <code>object</code>, en dus ook de methode <code>ToString()</code>. Standaard geeft die de typenaam terug, maar je kan ze <strong>overschrijven</strong> met <code>override</code> voor een zinvolle tekstweergave.
+            </p>
+            <pre class="code-block language-csharp"><code>public class Film
+{
+    public string Titel { get; set; }
+    public int Jaar { get; set; }
+    public double Score { get; set; }
+
+    public override string ToString()
+    {
+        return $"{Titel} ({Jaar}) — ★ {Score:F1}";
+    }
+}</code></pre>
+            <p>In een string context als <code>Console.WriteLine()</code> en string interpolatie wordt automatisch <code>ToString()</code> aangeroepen:</p>
+            <pre class="code-block language-csharp"><code>Film f = new Film { Titel = "Inception", Jaar = 2010, Score = 8.8 };
+
+Console.WriteLine(f);            // Inception (2010) — ★ 8.8
+Console.WriteLine($"Film: {f}"); // Film: Inception (2010) — ★ 8.8</code></pre>
+         </div>
+
+         <div class="assignment box">
+            <h3>Opgave</h3>
+            <p>
+               Gegeven is de klasse <code>Product</code> in <em>Exercises/Classes</em>. Ze heeft volgende properties:
+               <code>ProductId</code>, <code>Naam</code>, <code>Beschrijving</code>, <code>Prijs</code>, <code>Voorraad</code>, <code>IsInVoorraad</code>, <code>Korting</code> en <code>PrijsMetKorting</code>.
+            </p>
+            <ol>
+               <li>
+                  Voeg een <code>override ToString()</code> toe zodat een product als volgt weergegeven wordt:
+                  <pre class="prism-okaida language-none"><code>[9112] — € 999.99 | in voorraad</code></pre>
+                  Als het product niet in voorraad is, staat er <em>"niet in voorraad"</em>.
+               </li>
+            </ol>
+            <p>Verwacht resultaat:</p>
+            <pre class="prism-okaida language-none"><code>Oefening 4: toString()
+-------------
+product #0: [9112] Laptop - € 999,99 | in voorraad
+product #1: [2876] Bureaulamp - € 34,50 | niet in voorraad
+product #2: [3033] Rugzak - € 59,95 | in voorraad
+product #3: [4441] Koptelefoon - € 149,00 | in voorraad</code></pre>
+         </div>
+      </section>
+
+      <!-- Oefening 5: Compositie -->
+      <section class="exercise" id="ex5">
+         <h2>Compositie</h2>
+         <p class="goal">Doel: compositie — een klasse gebruiken als type van een property in een andere klasse.</p>
+
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Bij <strong>compositie</strong> gebruik je een klasse als type van een property in een andere klasse. Zo bouw je complexe objecten op uit eenvoudigere bouwstenen ("heeft een"-relatie).
+            </p>
+            <pre class="code-block language-csharp"><code>public class Speler
+{
+    public string Naam { get; set; }
+    public int Rugnummer { get; set; }
+    public override string ToString() => $"#{Rugnummer} {Naam}";
+}
+
+public class Team
+{
+    public string Naam { get; set; }
+    public string Stad { get; set; }
+    public List&lt;Speler&gt; Spelers { get; set; } = new List&lt;Speler&gt;(); // compositie: gebruik klasse Speler in klasse Team
+    public int AantalSpelers =&gt; Spelers.Count;
+}</code></pre>
+            <p>Gebruik:</p>
+            <pre class="code-block language-csharp"><code>Team t = new Team { Naam = "FC Demo", Stad = "Gent" };
+t.Spelers.Add(new Speler { Naam = "Ali Bouazza", Rugnummer = 9 }); // voeg Speler toe aan Team
+t.Spelers.Add(new Speler { Naam = "Nora Claes", Rugnummer = 7 }); // voeg Speler toe aan Team
+
+Console.WriteLine($"{t.Naam} heeft {t.AantalSpelers} spelers:");
+foreach (Speler s in t.Spelers)
+{
+   Console.WriteLine($"  {s}"); 
+}</code></pre>
+         </div>
+
+         <div class="assignment box">
+            <h3>Opgave</h3>
+            <p>
+               Gegeven is de klasse <code>Bestelling</code> in <em>Exercises/Classes</em>. Ze bevat een <code>List&lt;Product&gt;</code> (compositie).
+               Ook gegeven is een lijst van 10 producten.
+            </p>
+            <ol>
+               <li>
+                  Maak twee bestellingen aan:
+                  <ul>
+                     <li><strong>Bestelling 1</strong>: id = 1, klantnaam = "Amara Diallo", producten = Laptop, Rugzak en Webcam</li>
+                     <li><strong>Bestelling 2</strong>: id = 2, klantnaam = "Yuna Kim", producten = Laptop en Monitor</li>
+                  </ul>
+               </li>
+               <li>Implementeer de property <code>TotaalBedrag</code> in de klasse <code>Bestelling</code> en test of het totaalbedrag van bestelling 1 correct is.</li>
+               <li>Toon de details van bestelling 1 en van elk product dat erin zit (gebruik <code>ToString()</code>).</li>
+               <li>
+                  Geef 5% korting op alle producten in bestelling 2 (gebruik de property <code>Korting</code>) en toon daarna de details.
+               </li>
+            </ol>
+            <p>Verwacht resultaat:</p>
+            <pre class="prism-okaida language-none"><code>Oefening 5: compositie
+-------------
+Totaalbedrag bestelling 1: 1124,44
+details bestelling 1: #1 — Amara Diallo | 3 product(en) | € 1124,44 | Bezig
+  - [9112] Laptop - € 999,99 | in voorraad
+  - [3033] Rugzak - € 59,95 | in voorraad
+  - [7390] Webcam - € 64,50 | in voorraad
+details bestelling 2: #2 — Yuna Kim | 2 product(en) | € 1376,54 | Bezig
+  - [9112] Laptop - € 949,99 | in voorraad
+  - [8823] Monitor - € 426,55 | in voorraad</code></pre>
+         </div>
+      </section>
+
+      <!-- Oefening 6: Constructors -->
+      <section class="exercise" id="ex6">
+         <h2>Constructors</h2>
+         <p class="goal">Doel: constructors met parameters; constructor chaining met <code>:this()</code>.</p>
+
+         <div class="info box">
+            <h3>Theorie</h3>
+            <p>
+               Met een <strong>constructor</strong> geef je aan hoe een object kan aangemaakt worden uit de klasse. Je kan meerdere constructors voorzien met verschillende parameters. Met <code>:this()</code> roep je een andere constructor van dezelfde klasse op (<strong>constructor chaining</strong>), zodat je code niet herhaalt.
+            </p>
+            <pre class="code-block language-csharp"><code>public class Adres
+{
+    public string Straat { get; set; }
+    public int Huisnummer { get; set; }
+    public string Gemeente { get; set; }
+    public string Land { get; set; } = "België";
+
+    // constructor met verplichte velden
+    public Adres(string straat, int huisnummer, string gemeente)
+    {
+        Straat = straat;
+        Huisnummer = huisnummer;
+        Gemeente = gemeente;
+    }
+
+    // uitgebreide constructor — hergebruikt de eerste via :this()
+    public Adres(string straat, int huisnummer, string gemeente, string land)
+        : this(straat, huisnummer, gemeente) // roep eerst de vorige constructor op
+    {
+        Land = land; // stel dan dit in
+    }
+
+    public override string ToString() => $"{Straat} {Huisnummer}, {Gemeente} ({Land})";
+}</code></pre>
+            <p>Gebruik van de twee constructors:</p>
+            <pre class="code-block language-csharp"><code>Adres a1 = new Adres("Kerkstraat", 12, "Aalst"); // constructor 1
+Console.WriteLine(a1); // Kerkstraat 12, Aalst (België)
+
+Adres a2 = new Adres("Rue Neuve", 5, "Bruxelles", "France"); // constructor 2
+Console.WriteLine(a2); // Rue Neuve 5, Bruxelles (France)</code></pre>
+         </div>
+
+         <div class="assignment box">
+            <h3>Opgave</h3>
+            <p>
+               Gegeven is de klasse <code>ProfielInfo</code> in <em>Exercises/Classes</em> met properties voor verplichte info
+               (<code>Id</code>, <code>Gebruikersnaam</code>, <code>Email</code>, <code>AanmaakDatum</code>)
+               en optionele info (<code>Voornaam</code>, <code>Achternaam</code>, <code>Biografie</code>, <code>Website</code>, <code>IsPubliek</code>).
+            </p>
+            <ol>
+               <li>
+                  Breid de klasse uit met twee constructors:
+                  <ul>
+                     <li>Een constructor met enkel de verplichte gegevens als parameters: <code>Id</code>, <code>Gebruikersnaam</code>, <code>Email</code>.</li>
+                     <li>Een constructor met alle properties als parameters — gebruik <code>:this()</code> om de code van de eerste constructor te hergebruiken.</li>
+                  </ul>
+               </li>
+               <li>Voeg een berekende property <code>IsVolledig</code> toe die <code>true</code> geeft als alle optionele gegevens ingevuld zijn.</li>
+               <li>Voeg een <code>override ToString()</code> toe naar voorbeeld van de screenshot.</li>
+            </ol>
+            <p>Verwacht resultaat:</p>
+            <pre class="prism-okaida language-none"><code>Oefening 6: constructors
+-------------
+kaito99 - publiek | profiel is onvolledig
+priya_s - publiek | profiel is volledig
+carlos_m - privé | profiel is onvolledig</code></pre>
+         </div>
+      </section>
+
+   </main>
+
+   <footer class="page-footer" aria-label="Paginavoet">
+      <p>OOAD Klassen oefenblad.</p>
+   </footer>
+
+   <script src="vendor/prism.js"></script>
+</body>
+
+</html>
