@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="CLHelpDesk/CLHelpDesk.csproj" />
+  <Project Path="WpfHelpDesk/WpfHelpDesk.csproj" Id="2ba32bff-4513-43ed-9645-571e68e3a82d" />
+</Solution>

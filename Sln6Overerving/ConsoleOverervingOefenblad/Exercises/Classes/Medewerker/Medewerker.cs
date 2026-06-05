@@ -1,6 +1,9 @@
 namespace ConsoleOverervingOefenblad.Exercises.Classes.Medewerker;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-internal class Medewerker
+public class Medewerker
 {
     public string Naam { get; set; }
     public string Afdeling { get; set; }
